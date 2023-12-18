@@ -1,3 +1,6 @@
+【Affected Product Code Base】
+JF6000 - Product number JF6000 Product Serial Number 020305882208001 hardware version V1.2.0 Software version V2.0.0 build 6245 Software release date 2021-09-07
+【EXP】
 nmap  -p1-65535 172.16.xx.xx
 Nmap scan report for 172.16.xx.xx
 Host is up (0.019s latency).
